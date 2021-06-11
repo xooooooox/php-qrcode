@@ -1,0 +1,21 @@
+{
+  "name": "xooooooox/qrcode",
+  "type": "library",
+  "description": "php qrcode",
+  "authors": [
+    {
+      "name": "xooooooox",
+      "email": "718337253@qq.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "bacon/bacon-qr-code": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "xooooooox\\qrcode\\": "./qrcode"
+    }
+  }
+}
