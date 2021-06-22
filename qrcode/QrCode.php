@@ -39,12 +39,32 @@ class QrCode
      */
     public function __construct(string $QrCodePrefixDirectory = '', string $QrCodeDirectory = '') {
         if ($QrCodePrefixDirectory !== ''){
+            if (!self::StringHasSuffix($QrCodePrefixDirectory,DIRECTORY_SEPARATOR)){
+                $QrCodePrefixDirectory = $QrCodePrefixDirectory.DIRECTORY_SEPARATOR;
+            }
             $this->QrCodePrefixDirectory = $QrCodePrefixDirectory;
         }
         if ($QrCodeDirectory !== ''){
+            if (!self::StringHasSuffix($QrCodeDirectory,DIRECTORY_SEPARATOR)){
+                $QrCodeDirectory = $QrCodeDirectory.DIRECTORY_SEPARATOR;
+            }
             $this->QrCodeDirectory = $QrCodeDirectory;
         }
         $this->VerifyDirectoryExist();
+    }
+
+    /**
+     * String Has Suffix
+     * @param string $Str
+     * @param string $Suffix
+     * @return bool
+     */
+    public static function StringHasSuffix(string $Str, string $Suffix) : bool {
+        $length = strlen($Suffix);
+        if ($length === 0){
+            return true;
+        }
+        return (substr($Str,-$length) === $Suffix);
     }
 
     /**
